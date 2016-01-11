@@ -12,12 +12,20 @@ class ProductViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    
+    var product: Product?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLabel.text = "1937 Desk Phone"
         
-        imageView.image = UIImage(named: "telefone3")
+        if let p = product {
+        nameLabel.text = p.name
+        
+        if let i = p.productImage{
+        imageView.image = UIImage(named: i)
+            }
+        }
     }
 
     @IBAction func buttonPressed(sender: AnyObject) -> Void {
