@@ -11,6 +11,10 @@ import UIKit
 class ProductsTableViewController: UITableViewController {
     
     var products: [Product]?
+
+    @IBAction func about(sender: AnyObject) {
+        //performSegueWithIdentifier("ShowContact", sender: sender)
+    }
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -24,17 +28,17 @@ class ProductsTableViewController: UITableViewController {
         product1.productImage = "telefone1"
         product1.cellImage = "telefone1"
         
-        product1.name = "1921 Dial Phone"
-        product1.productImage = "telefone2"
-        product1.cellImage = "telefone2"
+        product2.name = "1921 Dial Phone"
+        product2.productImage = "telefone2"
+        product2.cellImage = "telefone2"
         
-        product1.name = "1937 Desk Set"
-        product1.productImage = "telefone3"
-        product1.cellImage = "telefone3"
+        product3.name = "1937 Desk Set"
+        product3.productImage = "telefone3"
+        product3.cellImage = "telefone3"
         
-        product1.name = "1984 Motorola Portable"
-        product1.productImage = "telefone4"
-        product1.cellImage = "telefone4"
+        product4.name = "1984 Motorola Portable"
+        product4.productImage = "telefone4"
+        product4.cellImage = "telefone4"
         
         products = [product1,product2,product3,product4]
     }
@@ -51,10 +55,12 @@ class ProductsTableViewController: UITableViewController {
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("ProductCell", forIndexPath: indexPath)
         
-        if let p = products?[indexPath.row]{
+        let product = products?[indexPath.row]
+        
+        if let p = product{
             cell.textLabel?.text = p.name
             if let i = p.cellImage {
-            cell.imageView?.image = UIImage (named: i)
+                cell.imageView?.image = UIImage (named: i)
             }
         }
         
@@ -65,12 +71,11 @@ class ProductsTableViewController: UITableViewController {
         if segue.identifier == "ShowProduct" {
             let productVC = segue.destinationViewController as? ProductViewController
             
-            if let cell = sender as? UITableViewCell{
-                if let index = tableView.indexPathForCell(cell){
-                    productVC?.product = products?[index.row]
-                    
-                }
-            }
+            guard  let cell = sender as? UITableViewCell,
+                   let index = tableView.indexPathForCell(cell) else {
+                    return }
+            
+            productVC?.product = products?[index.row]
         }
     }
     

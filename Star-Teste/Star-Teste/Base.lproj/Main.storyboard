@@ -31,19 +31,21 @@
                             <outlet property="delegate" destination="PNf-nx-xTA" id="BsG-gZ-4bZ"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="i2b-bu-PPm">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="NRG-x3-1E5">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="frP-LV-TVT">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="1RR-XI-1Fy">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WYx-L6-v5F">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="About US"/>
+                                <state key="normal" title="About us"/>
                                 <connections>
-                                    <action selector="Contact:" destination="PNf-nx-xTA" eventType="touchUpInside" id="yJQ-mJ-GmS"/>
-                                    <segue destination="7uU-Yd-s6Y" kind="push" id="MQ4-co-M1G"/>
+                                    <action selector="about:" destination="PNf-nx-xTA" eventType="touchUpInside" id="TJL-kn-jkg"/>
+                                    <segue destination="7uU-Yd-s6Y" kind="push" identifier="ShowContact" id="sjp-Q2-jsa"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTg-DQ-sOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
